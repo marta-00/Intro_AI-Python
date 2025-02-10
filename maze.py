@@ -1,6 +1,14 @@
+"""
+
+"""
 import sys
 
 class Node():
+    """
+    This class keeps track of the state, parent (state before the state) and the action.
+    In this case we are not keeping track of the path cost because we can calculate the 
+    cost of the path at the end.
+    """
     def __init__(self, state, parent, action):
         self.state = state
         self.parent = parent
@@ -8,19 +16,39 @@ class Node():
 
 
 class StackFrontier():
+    """
+    Class for creating and manipulating a frontier(list) as a stack. This is a last in, first out
+    data structure
+    """
     def __init__(self):
+        """
+        fuction that creates a frontier represented by a list, initially empty
+        """
         self.frontier = []
 
     def add(self, node):
+        """
+        fuction that adds something to the frontier by appending it to the end of the list.
+        """
         self.frontier.append(node)
 
     def contains_state(self, state):
+        """
+        fuction that checks if the frontier contains a particular state.
+        """
         return any(node.state == state for node in self.frontier)
 
     def empty(self):
+        """
+        fuction that checks if the frontier is empty.
+        """
         return len(self.frontier) == 0
 
     def remove(self):
+        """
+        fuction that removes something from the frontier if its not empty. The item that is removed
+        is the last item on the list(stack structure)
+        """
         if self.empty():
             raise Exception("empty frontier")
         else:
@@ -30,8 +58,14 @@ class StackFrontier():
 
 
 class QueueFrontier(StackFrontier):
-
+    """
+    Alternative method for the stack frontier. It changes the removing mechanism
+    """
     def remove(self):
+        """
+        Functions that removes an item of the frontier. This item is at the beginning of
+        the list
+        """
         if self.empty():
             raise Exception("empty frontier")
         else:
@@ -40,6 +74,9 @@ class QueueFrontier(StackFrontier):
             return node
 
 class Maze():
+    """
+    Class that handles the process of taking a sequence
+    """
 
     def __init__(self, filename):
 
