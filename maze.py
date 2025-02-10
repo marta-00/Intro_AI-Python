@@ -154,14 +154,21 @@ class Maze():
 
 
     def solve(self):
-        """Finds a solution to maze, if one exists."""
+        """
+        Finds a solution to maze, if one exists.
+        The diference for searching with DFS(depth first search) and BFS (Breadth first search) is the
+        data structure that it is used to represent the frontier. 
+           - StackFrontier(): DFS  -> last in, last out
+           - QueueFrontier(): BFS  -> first in, first out
+        """
 
         # Keep track of number of states explored
         self.num_explored = 0
 
         # Initialize frontier to just the starting position
         start = Node(state=self.start, parent=None, action=None)
-        frontier = StackFrontier()
+        frontier = StackFrontier()  #DFS
+        #frontier = QueueFrontier() #BFS
         frontier.add(start)
 
         # Initialize an empty explored set
