@@ -1,3 +1,8 @@
+"""
+Tic-Tac-Toe Runner
+Thus script contains all of the code to run the graphical interface for the game.
+"""
+
 import pygame
 import sys
 import time
