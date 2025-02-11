@@ -1,4 +1,0 @@
-"""
-This code contains a Tic-Tac-Toe game played by a AI.
-The AI will use the minimax informed search in order to make decisions.
-"""
