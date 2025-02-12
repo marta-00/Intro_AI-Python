@@ -1,9 +1,21 @@
+"""
+This script finds the shortest path between two actors in terms of the movies they have starred in.
+It is based on the six degrees of separation theory, which states that any two people on Earth are six or 
+fewer acquaintance links apart. It is used BFS (Breadth-First Search) algorithm to find the shortest path 
+between two actors.
+
+Data is taken by CSV file. There are divided in two files, a small one for testing a a large one for final 
+results.
+
+Date: 12/02/2025
+"""
 import csv
 import sys
 
 from util import Node, StackFrontier, QueueFrontier
 
-# Maps names to a set of corresponding person_ids
+# Maps names to a set of corresponding person_ids. It's possible for many actors to
+# have the same name, so each name maps to a set of person_ids.
 names = {}
 
 # Maps person_ids to a dictionary of: name, birth, movies (a set of movie_ids)
@@ -90,10 +102,54 @@ def shortest_path(source, target):
     that connect the source to the target.
 
     If no possible path, returns None.
+    INPUT:  - source: person_id of the source actor
+            - target: person_id of the target actor
+    RETURN: - list of (movie_id, person_id) pairs that connect the source to the target. Each pair
+              is a tuple of 2 strings.If there are multiple paths, return any of them.
+            - None if there is no possible path
     """
+    # Initialize frontier to just the starting position
+    start = Node(state=source, parent=None, action=None)
+    frontier = QueueFrontier()
+    frontier.add(start)
 
-    # TODO
-    raise NotImplementedError
+    # Initialize an empty explored set
+    explored = set()
+
+    # Keep looping until solution is found
+    while True:
+
+        # If nothing left in frontier, then no path
+        if frontier.empty():
+            return None
+
+        # Choose a node from the frontier
+        node = frontier.remove()
+        state = node.state
+
+        # If node is the goal, then we have a solution
+        if state == target:
+            actions = []
+            cells = []
+            while node.parent is not None:
+                actions.append(node.action)
+                cells.append(node.state)
+                node = node.parent
+            actions.reverse()
+            cells.reverse()
+            solution = []
+            for i in range(len(actions)):
+                solution.append((actions[i], cells[i]))
+            return solution
+
+        # Mark node as explored
+        explored.add(state)
+
+        # Add neighbors to frontier
+        for movie_id, person_id in neighbors_for_person(state):
+            if not frontier.contains_state(person_id) and person_id not in explored:
+                child = Node(state=person_id, parent=node, action=movie_id)
+                frontier.add(child)
 
 
 def person_id_for_name(name):
