@@ -119,6 +119,7 @@ def terminal(board):
     Returns True if game is over, False otherwise. The game is over when all the cells are filled or there
     is a winner.
     INPUT:   - board: list of lists representing the state of the board
+    RETURNS: - True/False: True if game is over, False otherwise
     """
     if winner(board) is not None:
         return True
@@ -131,12 +132,61 @@ def terminal(board):
 def utility(board):
     """
     Returns 1 if X has won the game, -1 if O has won, 0 otherwise.
+    INPUT:   - board: list of lists representing the state of the board
+    RETURNS: - 1/-1/0: the utility of the board
     """
-    raise NotImplementedError
-
+    if terminal(board) == True:
+        if winner(board) == X:
+            return 1
+        elif winner(board) == O:
+            return -1
+        else:
+            return 0
+    
 
 def minimax(board):
     """
-    Returns the optimal action for the current player on the board.
+    Returns the optimal action for the current player on the board. If many actions have the same value, any
+    of them can be returned. If the game is over, it returns None.
+
+    The player X will try to maximize the value of the board, while the player O will try to minimize it.
+
+    INPUT:   - board: list of lists representing the state of the board
+    RETURNS: - tuple: the optimal action for the current player on the board
+             - None: if the game is over
     """
-    raise NotImplementedError
+    def max_val(board):
+        value = float("-inf") # we start with the minimun value possible because we want to maximize it
+        if terminal(board):
+            return utility(board)
+        for action in actions(board):
+            value = max(value, min_val(result(board,action)))
+        return value
+    
+    def min_val(board):
+        value = float("inf")
+        if terminal(board):
+            return utility(board)
+        for action in actions(board):
+            value = min(value, max_val(result(board,action)))
+        return value
+    
+    #the maximazing player picks an action that produces the highest value of Min-Value
+    if player(board) == X:
+        value = float("-inf")
+        for action in actions(board):
+            new_value = min_val(result(board, action))
+            if new_value > value:
+                value = new_value
+                optimal_action = action
+        return optimal_action
+    #the minimizing player picks an action that produces the lowest value of Max-Value
+    else:
+        value = float("inf")
+        for action in actions(board):
+            new_value = max_val(result(board, action))
+            if new_value < value:
+                value = new_value
+                optimal_action = action
+        return optimal_action
+    
