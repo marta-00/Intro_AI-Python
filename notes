@@ -1,0 +1,46 @@
+Lecture 1: Searching
+Searching consist in finding a solution to a problem. 
+  - State: configuration of a agent and and enviroment (the configuration of a chess board)
+  - Initial state
+  - Actions: posible choices that can be made in a state
+  - Goal test: condition that determines if the problem is solved
+  - Path cost: numerical cost associated to a path
+  - Solution: sequence of actions that leads to the goal
+  - Optimal solution: the solution with the lowest path cost
+
+Data is stored in a node (state, parent node, action, path cost). To search all the diferent
+nodes we use a frontier. Contains an initial stat and empty ser of explored items and repeats: 
+   1. If the frontier is empty -> stop, No solution
+   2. Remove a node from the frontier
+   3. If the node==goal state -> stop, Return solution
+   4. else expand the node with posibles nodes taht can be reached with a action
+      and add the them to the frontier
+
+Methods of search
+  - DEPTH-FIRST SEARCH (DFS)
+    
+  - BREADTH-FIRST SEARCH (BFS)
+
+
+
+------------------------------------------------------------------------------------------------------
+Lecture 2: Knowing
+Representing information and drawing inferences from it
+Propositional Logic
+    - NOT (¬): inverses the truth of the proposition
+    - AND (^): Only when both propositions are TRUE the final is TRUE
+    - OR (v): If 1 of 2 propositions is TRUE the final is TRUE
+    - IMPLICATION (->): If P happens then Q: Only FALSE whe P(true) and Q(false)
+    - BICONDITIONAL (<->): If Q is the same as P then TRUE (both TRUE or both FALSE)
+    - MODEL: asigns a T/F value to the propositions. The number of models are 2^n
+    - ENTAILMENT (alpha |= beta): in every model where alpha is TRUE then beta is also TRUE
+    - Knowledge base: agrupation of all propositions and information of them
+
+INFERENCE: deriving new sentences from the previous
+Algorithms
+    - MODEL CHECKING
+        1. enumerate all possible model
+        2. if in every model KB is true, alpha true -> entails true
+        3. else -> entails not true
+
+
