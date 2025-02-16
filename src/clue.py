@@ -2,6 +2,7 @@ import termcolor
 
 from logic import *
 
+#Define symbols
 mustard = Symbol("ColMustard")
 plum = Symbol("ProfPlum")
 scarlet = Symbol("MsScarlet")
@@ -21,6 +22,9 @@ symbols = characters + rooms + weapons
 
 
 def check_knowledge(knowledge):
+    """
+    Takes Knowledge and draws conclusions
+    """
     for symbol in symbols:
         if model_check(knowledge, symbol):
             termcolor.cprint(f"{symbol}: YES", "green")
@@ -30,7 +34,7 @@ def check_knowledge(knowledge):
 
 # There must be a person, room, and weapon.
 knowledge = And(
-    Or(mustard, plum, scarlet),
+    Or(mustard, plum, scarlet),   
     Or(ballroom, kitchen, library),
     Or(knife, revolver, wrench)
 )

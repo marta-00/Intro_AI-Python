@@ -228,7 +228,7 @@ class Biconditional(Sentence):
 def model_check(knowledge, query):
     """
     Checks if knowledge base entails query.
-    Enumerate all posible models and see if it is true in all models.
+    Enumerate all posible models and see if it is true in a model.
     
     """
     def check_all(knowledge, query, symbols, model):
