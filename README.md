@@ -1,4 +1,4 @@
-# 💻 CS50 AI Projects
+# 🎮 CS50 AI Projects
 
 This repository contains all the projects I've completed as part of the 
 **CS50 Artificial Intelligence (AI)** course by Harvard University. 
@@ -18,8 +18,8 @@ including search algorithms, machine learning, and neural networks.
    - **Technologies Used**: Python
    - **AI Skill**: Search problem
    - **Code**: [Project 2 Folder Link](./tictactoe)
-   - 
-## About the Course
+
+## 💻 About the Course
 
 The **CS50 AI** course provides an introduction to artificial intelligence and its applications. It teaches foundational AI 
 concepts through hands-on projects, including search algorithms, optimization, machine learning, and neural networks. 
