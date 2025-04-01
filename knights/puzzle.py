@@ -54,12 +54,25 @@ knowledge2 = And(
 # A says either "I am a knight." or "I am a knave.", but you don't know which.
 sentenceA = Or(AKnight, AKnave)
 # B says "A said 'I am a knave'."
+
 # B says "C is a knave."
-sentenceB = And(AKnave, CKnave)
+sentenceB1 = AKnave
+sentenceB =  CKnave
 # C says "A is a knight."
-C = AKnight
+sentenceC = AKnight
 knowledge3 = And(
-    A, B, C
+    Or(AKnight, AKnave),  # A is either a knight or a knave
+    Or(BKnight, BKnave),  # B is either a knight or a knave
+    Or(CKnight, CKnave),  # C is either a knight or a knave
+     
+    Implication(sentenceB, And(BKnight,CKnave)),
+    Implication(Not(sentenceB), And(BKnave, CKnight)),
+
+    Implication(sentenceC, And(CKnight, AKnight)),
+    Implication(Not(sentenceC), And(CKnave, AKnave)),
+
+    Implication(BKnight, sentenceB1),
+    Implication(BKnave, Not(sentenceB1)),
 )
 
 

@@ -13,11 +13,23 @@ including search algorithms, machine learning, and neural networks.
    - **AI Skill**: Search problem
    - **Code**: [Project 1 Folder Link](./degrees)
 
-### 2️⃣ **Project 2: [Tic Tac Toe]**
+### 2️⃣ **Project 2: [TicTacToe]**
    - **Description**: This is a TicTacToe game against the implemented AI. This project search for the optimal move by considering every scenario after each move. Please try but you'll NEVER win 😁
    - **Technologies Used**: Python
    - **AI Skill**: Search problem
    - **Code**: [Project 2 Folder Link](./tictactoe)
+
+### 3️⃣ **Project 3: [Minesweeper]**
+   - **Description**: This is a Minesweeper game. The goal is to know where all the bombs are ubicated. You can either play by yourself or ask the AI to make a move.
+   - **Technologies Used**: Python
+   - **AI Skill**: Knowledge problem
+   - **Code**: [Project 3 Folder Link](./minesweeper)
+
+### 3️⃣ **Project 4: [Knights or Knaves]**
+   - **Description**: The AI of this project must determing weather a player is a knight(always say the thuth) or a knave (always lies) by the sentences they say.
+   - **Technologies Used**: Pyton
+   - **AI Skill**: Knowledge problem
+   - **Code**: [Project 4 Folder Link](./knights)
 
 ## 💻 About the Course
 
