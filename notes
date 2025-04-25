@@ -43,4 +43,35 @@ Algorithms
         2. if in every model KB is true, alpha true -> entails true
         3. else -> entails not true
 
+------------------------------------------------------------------------------------------------------
+Lecture 3: Uncertainty
+Uncertainty is the lack of knowledge about the world. We have possible worlds(w) 
+    - PROBABILITY P(w): measure of uncertainty. 0 = impossible, 1 = certain
+    - CONDITIONAL PROBABILITY P(a|b): probability of A given B(we know). P(A|B) = P(A^B)/P(B)
+    - RANDOM VARIABLE x: variable that can take different values. P(X) = <x1, x2, x3...> 
+    - INDEPENDENCE: P(A|B) = P(A) if A and B are independent.
+                    P(A^B) = P(A) * P(B|A) = P(A)*P(B) if A and B are independent.
+    - BAYES THEOREM: P(A|B) = P(B|A) * P(A) / P(B)
+    - JOINT PROBABILITY: probability distribution of a set of random variables.
+
+    -Negation: P(¬A) = 1 - P(A)
+    -Or(Inclusion-exclusion formula): P(A v B) = P(A) + P(B) - P(A^B)
+    -Marginalization: P(A) = P(A, B) + P(A, ¬B)                    P(X=x_i)=∑_j P(X=x_i, Y=y_j)
+    -conditioning: P(X=x_i|Y=y_j)=P(X=x_i, Y=y_j)*P(Y=y_j)
+
+
+Bayesian network: data structure that represents tehe dependencies among random variables (directec graph)
+    - Nodes: random variables
+    - arrow: dependencies between nodes (directed edges)
+    - Conditional probability table: P(X|parents(X)) for each node X
+    - Joint probability distribution: P(X1, X2, ..., Xn) = ∏ P(Xi|parents(Xi))
+
+    Inference: computing the probability of a set of variables given the values of other variables.
+    - query: set of variables we want to infer the probability of.
+    - evidence: set of variables we know the values of.
+    - hidden variables: variables we dont know the values of.
+    - Goal: calulate P(X|evidence) for a set of variables X.
+
+python library pomegranate
+ 
 
