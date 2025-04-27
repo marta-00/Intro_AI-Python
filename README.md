@@ -27,9 +27,21 @@ including search algorithms, machine learning, and neural networks.
 
 ### 3️⃣ **Project 4: [Knights or Knaves]**
    - **Description**: The AI of this project must determing weather a player is a knight(always say the thuth) or a knave (always lies) by the sentences they say.
-   - **Technologies Used**: Pyton
+   - **Technologies Used**: Python
    - **AI Skill**: Knowledge problem
    - **Code**: [Project 4 Folder Link](./knights)
+
+### 3️⃣ **Project 5: [PageRank]**
+   - **Description**: This is a Ai that determines the ponderate relation between diferent elements. This system is used is web seraches such as Google.
+   - **Technologies Used**: Python
+   - **AI Skill**: Bayesian Network problem
+   - **Code**: [Project 4 Folder Link](./pagerank)
+
+### 3️⃣ **Project 6: [Heredity]**
+   - **Description**: This is a Ai that determines weather a genetic trait is passed to a child by it's parents and the probabilty of it.
+   - **Technologies Used**: Python
+   - **AI Skill**: Bayesian Network problem
+   - **Code**: [Project 4 Folder Link](./heredity)
 
 ## 💻 About the Course
 
